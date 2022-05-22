@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1000264213892",
+    "project_id": "medens-mood",
+    "storage_bucket": "medens-mood.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000264213892:android:cb8cd99c6fbc3cbba9e9d1",
+        "android_client_info": {
+          "package_name": "com.medens.mood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1000264213892-u1q7dme0oot2ns0t6em6chh2kqio6nga.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.medens.mood",
+            "certificate_hash": "ae8979dfe464206bf5e68b41af308b60bac3aa3d"
+          }
+        },
+        {
+          "client_id": "1000264213892-b49ogi26v64mhlk5f727bkt7kh3svbq1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeGi22Ocl-49YEi-I6ws2TZkLzwdpWXuA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1000264213892-b49ogi26v64mhlk5f727bkt7kh3svbq1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

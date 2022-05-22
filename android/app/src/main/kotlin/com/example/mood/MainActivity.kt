@@ -1,4 +1,4 @@
-package com.example.mood
+package com.medens.mood
 
 import io.flutter.embedding.android.FlutterActivity
 
