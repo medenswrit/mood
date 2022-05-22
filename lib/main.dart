@@ -57,10 +57,10 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: SplashPage(),
+          home: const SplashPage(),
           routes: {
-            SigninPage.routeName: (context) => SigninPage(),
-            HomePage.routeName: (context) => HomePage(),
+            SigninPage.routeName: (context) => const SigninPage(),
+            HomePage.routeName: (context) => const HomePage(),
           },
         ),
       ),

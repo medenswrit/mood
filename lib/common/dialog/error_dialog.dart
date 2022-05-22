@@ -13,10 +13,10 @@ void errorDialog(BuildContext context, CustomError e) {
       builder: (context) {
         return CupertinoAlertDialog(
           title: Text(e.code),
-          content: Text(e.plugin + '\n' + e.message),
+          content: const Text('{e.plugin} \n {e.message}'),
           actions: [
             CupertinoDialogAction(
-              child: Text('OK'),
+              child: const Text('OK'),
               onPressed: () => Navigator.pop(context),
             ),
           ],
@@ -29,10 +29,10 @@ void errorDialog(BuildContext context, CustomError e) {
       builder: (context) {
         return AlertDialog(
           title: Text(e.code),
-          content: Text(e.plugin + '\n' + e.message),
+          content: const Text('{e.plugin} \n {e.message}'),
           actions: [
             TextButton(
-              child: Text('OK'),
+              child: const Text('OK'),
               onPressed: () => Navigator.pop(context),
             ),
           ],

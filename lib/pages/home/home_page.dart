@@ -7,10 +7,10 @@ class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -18,17 +18,17 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: Text('Home'),
+          title: const Text('Home'),
           actions: [
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.account_circle),
+              icon: const Icon(Icons.account_circle),
             ),
             IconButton(
               onPressed: () {
                 context.read<AuthBloc>().add(SignoutRequestedEvent());
               },
-              icon: Icon(Icons.exit_to_app),
+              icon: const Icon(Icons.exit_to_app),
             ),
           ],
         ),
@@ -40,8 +40,8 @@ class _HomePageState extends State<HomePage> {
                 'assets/images/bloc_logo_full.png',
                 width: MediaQuery.of(context).size.width * 0.8,
               ),
-              SizedBox(height: 20.0),
-              Text(
+              const SizedBox(height: 20.0),
+              const Text(
                 'Bloc is an awesome\nstate management library\nfor flutter!',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 24.0),

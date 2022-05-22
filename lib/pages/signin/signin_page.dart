@@ -9,10 +9,10 @@ class SigninPage extends StatefulWidget {
   const SigninPage({Key? key}) : super(key: key);
 
   @override
-  _SigninPageState createState() => _SigninPageState();
+  SigninPageState createState() => SigninPageState();
 }
 
-class _SigninPageState extends State<SigninPage> {
+class SigninPageState extends State<SigninPage> {
   void _submit() {
     context.read<SigninCubit>().logInWithGoogle();
   }
