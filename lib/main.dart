@@ -3,8 +3,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mood/constants/style_constants.dart';
 import 'package:mood/data/repositories/auth_repository.dart';
+import 'package:mood/data/repositories/profile_repository.dart';
 import 'package:mood/pages/home/home_page.dart';
+import 'package:mood/pages/profile/cubit/profile_cubit.dart';
 import 'package:mood/pages/signin/cubit/signin_cubit.dart';
 import 'package:mood/pages/signin/signin_page.dart';
 import 'package:mood/pages/splash/splash_page.dart';
@@ -32,11 +35,11 @@ class MyApp extends StatelessWidget {
             firebaseAuth: FirebaseAuth.instance,
           ),
         ),
-        // RepositoryProvider<ProfileRepository>(
-        //   create: (context) => ProfileRepository(
-        //     firebaseFirestore: FirebaseFirestore.instance,
-        //   ),
-        // ),
+        RepositoryProvider<ProfileRepository>(
+          create: (context) => ProfileRepository(
+            firebaseFirestore: FirebaseFirestore.instance,
+          ),
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -50,12 +53,17 @@ class MyApp extends StatelessWidget {
               authRepository: context.read<AuthRepository>(),
             ),
           ),
+          BlocProvider<ProfileCubit>(
+            create: (context) => ProfileCubit(
+              profileRepository: context.read<ProfileRepository>(),
+            ),
+          ),
         ],
         child: MaterialApp(
           title: 'Firebase Auth',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
-            primarySwatch: Colors.blue,
+            primarySwatch: MaterialColor(0xFF880E4F, themeColor),
           ),
           home: const SplashPage(),
           routes: {

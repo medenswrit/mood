@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mood/pages/profile/profile_page.dart';
 import 'package:mood/utils/auth/auth_bloc.dart';
 
 class HomePage extends StatefulWidget {
@@ -21,7 +22,14 @@ class HomePageState extends State<HomePage> {
           title: const Text('Home'),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return const ProfilePage();
+                  }),
+                );
+              },
               icon: const Icon(Icons.account_circle),
             ),
             IconButton(
@@ -35,13 +43,9 @@ class HomePageState extends State<HomePage> {
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                'assets/images/bloc_logo_full.png',
-                width: MediaQuery.of(context).size.width * 0.8,
-              ),
-              const SizedBox(height: 20.0),
-              const Text(
+            children: const [
+              SizedBox(height: 20.0),
+              Text(
                 'Bloc is an awesome\nstate management library\nfor flutter!',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 24.0),

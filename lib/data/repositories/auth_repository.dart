@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as fbAuth;
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:mood/constants/db_constants.dart';
 import 'package:mood/data/models/custom_error.dart';
 
 class AuthRepository {
@@ -25,7 +27,17 @@ class AuthRepository {
         idToken: googleAuth.idToken,
       );
 
-      await firebaseAuth.signInWithCredential(credential);
+      UserCredential userCredentials =
+          await firebaseAuth.signInWithCredential(credential);
+
+      final signedInUser = userCredentials.user!;
+      String idToken = await signedInUser.getIdToken();
+      print(idToken);
+      await usersReference.doc(signedInUser.uid).set({
+        'name': signedInUser.displayName,
+        'email': signedInUser.email,
+        'idToken': idToken,
+      });
     } on fbAuth.FirebaseAuthException catch (e) {
       throw CustomError(
         code: e.code,
