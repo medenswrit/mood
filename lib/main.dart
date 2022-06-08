@@ -3,14 +3,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:mood/constants/style_constants.dart';
 import 'package:mood/data/repositories/auth_repository.dart';
 import 'package:mood/data/repositories/profile_repository.dart';
-import 'package:mood/pages/home/home_page.dart';
 import 'package:mood/pages/profile/cubit/profile_cubit.dart';
 import 'package:mood/pages/signin/cubit/signin_cubit.dart';
-import 'package:mood/pages/signin/signin_page.dart';
 import 'package:mood/pages/splash/splash_page.dart';
+import 'package:mood/router.dart';
 import 'package:mood/utils/auth/auth_bloc.dart';
 import 'firebase_options.dart';
 
@@ -61,15 +61,22 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           title: 'Firebase Auth',
+          localizationsDelegates: const [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: const [
+            Locale('en', ''),
+          ],
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             primarySwatch: MaterialColor(0xFF880E4F, themeColor),
           ),
-          home: const SplashPage(),
-          routes: {
-            SigninPage.routeName: (context) => const SigninPage(),
-            HomePage.routeName: (context) => const HomePage(),
-          },
+          initialRoute: SplashPage.routeName,
+          onGenerateInitialRoutes: MoodRouter.generateInitialRoutes,
+          onGenerateRoute: MoodRouter.generateRoute,
+          navigatorKey: GlobalKey(),
         ),
       ),
     );

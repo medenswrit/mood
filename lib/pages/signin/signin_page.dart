@@ -6,6 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SigninPage extends StatefulWidget {
   static const String routeName = '/signin';
+  static const pageName = 'SignIn';
+
   const SigninPage({Key? key}) : super(key: key);
 
   @override

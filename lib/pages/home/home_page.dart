@@ -5,6 +5,8 @@ import 'package:mood/utils/auth/auth_bloc.dart';
 
 class HomePage extends StatefulWidget {
   static const String routeName = '/home';
+  static const pageName = 'Home';
+
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -23,12 +25,7 @@ class HomePageState extends State<HomePage> {
           actions: [
             IconButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) {
-                    return const ProfilePage();
-                  }),
-                );
+                Navigator.of(context).pushNamed(ProfilePage.routeName);
               },
               icon: const Icon(Icons.account_circle),
             ),

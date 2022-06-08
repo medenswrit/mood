@@ -5,6 +5,9 @@ import 'package:mood/pages/profile/cubit/profile_cubit.dart';
 import 'package:mood/utils/auth/auth_bloc.dart';
 
 class ProfilePage extends StatefulWidget {
+  static const String routeName = '/profile';
+  static const pageName = 'Profile';
+
   const ProfilePage({Key? key}) : super(key: key);
 
   @override
