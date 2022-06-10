@@ -76,7 +76,7 @@ class MyApp extends StatelessWidget {
           initialRoute: SplashPage.routeName,
           onGenerateInitialRoutes: MoodRouter.generateInitialRoutes,
           onGenerateRoute: MoodRouter.generateRoute,
-          navigatorKey: GlobalKey(),
+          navigatorKey: GlobalKey<NavigatorState>(),
         ),
       ),
     );

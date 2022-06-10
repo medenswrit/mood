@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mood/pages/home/home_page.dart';
+import 'package:mood/pages/base/base_page.dart';
+import 'package:mood/pages/base/tabs/analysis/analysis_page.dart';
+import 'package:mood/pages/base/tabs/daily/daily_page.dart';
+import 'package:mood/pages/base/tabs/home/home_page.dart';
 import 'package:mood/pages/profile/profile_page.dart';
 import 'package:mood/pages/signin/signin_page.dart';
 import 'package:mood/pages/splash/splash_page.dart';
@@ -30,14 +33,21 @@ class MoodRouter {
     // );
 
     switch (settings.name) {
-      case HomePage.routeName:
-        return MaterialPageRoute(builder: (context) => const HomePage());
+      case BasePage.routeName:
+        return MaterialPageRoute(builder: (context) => const BasePage());
       case SigninPage.routeName:
         return MaterialPageRoute(builder: (context) => const SigninPage());
       case SplashPage.routeName:
         return MaterialPageRoute(builder: (context) => const SplashPage());
       case ProfilePage.routeName:
         return MaterialPageRoute(builder: (context) => const ProfilePage());
+      //  Tabs
+      case HomePage.routeName:
+        return MaterialPageRoute(builder: (context) => const HomePage());
+      case AnalysisPage.routeName:
+        return MaterialPageRoute(builder: (context) => const AnalysisPage());
+      case DailyPage.routeName:
+        return MaterialPageRoute(builder: (context) => const DailyPage());
       default:
         // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();
