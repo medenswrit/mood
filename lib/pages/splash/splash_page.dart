@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mood/pages/home/home_page.dart';
+import 'package:mood/pages/base/base_page.dart';
 import 'package:mood/pages/signin/signin_page.dart';
 import 'package:mood/utils/auth/auth_bloc.dart';
 
@@ -27,7 +27,7 @@ class SplashPage extends StatelessWidget {
             },
           );
         } else if (state.authStatus == AuthStatus.authenticated) {
-          Navigator.pushNamed(context, HomePage.routeName);
+          Navigator.pushNamed(context, BasePage.routeName);
         }
       },
       builder: (context, state) {
