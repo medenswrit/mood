@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mood/pages/base/base_page.dart';
 import 'package:mood/pages/profile/profile_page.dart';
 import 'package:mood/utils/auth/auth_bloc.dart';
 
-class HomePage extends StatefulWidget {
-  static const String routeName = '/home';
-  static const pageName = 'Home';
+class TestPage extends StatefulWidget {
+  static const String routeName = '/test';
+  static const pageName = 'Test';
 
-  const HomePage({Key? key}) : super(key: key);
+  const TestPage({Key? key}) : super(key: key);
 
   @override
-  HomePageState createState() => HomePageState();
+  TestPageState createState() => TestPageState();
 }
 
-class HomePageState extends State<HomePage> {
+class TestPageState extends State<TestPage> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -23,6 +24,12 @@ class HomePageState extends State<HomePage> {
           automaticallyImplyLeading: false,
           title: const Text('Home'),
           actions: [
+            IconButton(
+              onPressed: () {
+                Navigator.of(context).pushReplacementNamed(BasePage.routeName);
+              },
+              icon: const Icon(Icons.account_box),
+            ),
             IconButton(
               onPressed: () {
                 Navigator.of(context).pushNamed(ProfilePage.routeName);
