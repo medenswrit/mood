@@ -22,16 +22,6 @@ class MoodRouter {
     // Getting arguments passed in while calling Navigator.pushNamed
     final args = settings.arguments;
 
-//  Passing an argument in a route
-    // final profileRepository = args as ProfileRepository;
-    // return MaterialPageRoute(
-    //   builder: (_) => BlocProvider(
-    //     create: (context) =>
-    //         ProfileCubit(profileRepository: profileRepository),
-    //     child: const ProfilePage(),
-    //   ),
-    // );
-
     switch (settings.name) {
       case BasePage.routeName:
         return MaterialPageRoute(builder: (context) => const BasePage());

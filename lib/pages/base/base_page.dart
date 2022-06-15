@@ -45,7 +45,6 @@ class BasePageState extends State<BasePage> {
           controller: _pageController,
           children: BottomNavigation.tabs.map((tab) {
             return Navigator(
-              // key: tab.nav,
               onGenerateRoute: MoodRouter.generateRoute,
               initialRoute: tab.route,
             );
