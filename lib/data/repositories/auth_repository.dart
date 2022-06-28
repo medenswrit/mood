@@ -32,12 +32,23 @@ class AuthRepository {
 
       final signedInUser = userCredentials.user!;
       String idToken = await signedInUser.getIdToken();
-      print(idToken);
-      await usersReference.doc(signedInUser.uid).set({
-        'name': signedInUser.displayName,
-        'email': signedInUser.email,
-        'idToken': idToken,
-      });
+
+      DocumentSnapshot userDoc =
+          await usersReference.doc(signedInUser.uid).get();
+
+      if (userDoc.exists) {
+        await usersReference.doc(signedInUser.uid).update({
+          'name': signedInUser.displayName,
+          'email': signedInUser.email,
+          'idToken': idToken,
+        });
+      } else {
+        await usersReference.doc(signedInUser.uid).set({
+          'name': signedInUser.displayName,
+          'email': signedInUser.email,
+          'idToken': idToken,
+        });
+      }
     } on fbAuth.FirebaseAuthException catch (e) {
       throw CustomError(
         code: e.code,

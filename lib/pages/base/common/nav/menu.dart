@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mood/common/dialog/alert_dialog.dart';
+import 'package:mood/pages/profile/profile_page.dart';
 import 'package:mood/utils/auth/auth_bloc.dart';
 
 class Menu {
@@ -45,7 +46,7 @@ class Menu {
   static void _selectedItem(BuildContext context, item) {
     switch (item) {
       case 0:
-        // TODO: add navigation to settings
+        Navigator.pushNamed(context, ProfilePage.routeName);
         break;
       case 1:
         // TODO: add navigation to configuration

@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:mood/constants/db_constants.dart';
 import 'package:mood/data/models/custom_error.dart';
 import 'package:mood/data/models/user_model.dart';
 import 'package:mood/data/repositories/profile_repository.dart';
@@ -27,5 +28,10 @@ class ProfileCubit extends Cubit<ProfileState> {
         error: e,
       ));
     }
+  }
+
+  Future<void> setNotificationsStatus(
+      {required String uid, required bool notifications}) async {
+    await usersReference.doc(uid).update({'notifications': notifications});
   }
 }
